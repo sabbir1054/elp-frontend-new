@@ -26,11 +26,11 @@ const LoginForm = () => {
     signInWithEmailAndPassword(data.email, data.password)
       .then(() => {
        
-
+navigate(from, { replace: true });
         
     });
   };
-  // user ? console.log(user.user) : console.log(error);
+ 
 
   return (
     <>
