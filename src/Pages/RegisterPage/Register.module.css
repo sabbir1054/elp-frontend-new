@@ -1,0 +1,9 @@
+.register_wrap_bg{
+      background-image: url("/public/img/background.png");
+height: 130vh;
+background-position: top;
+background-repeat: no-repeat;
+background-size: cover;
+
+}
+
