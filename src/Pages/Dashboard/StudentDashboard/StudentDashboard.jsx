@@ -13,7 +13,8 @@ const StudentDashboard = () => {
         <StudentNav></StudentNav>
         <section>
           <h4 className="text-center text-white py-4">
-            Hi <span className='text-warning'> {user ? user.email : ""}</span>, Welcome to ELP student dashboard
+            Hi <span className="text-warning"> {user ? user.email : ""}</span>,
+            Welcome to ELP student dashboard
           </h4>
           <div className="d-flex justify-content-center">
             {user ? (
@@ -29,10 +30,11 @@ const StudentDashboard = () => {
               ""
             )}
           </div>
-          <div className="d-flex justify-content-center">
-            <StudentTab></StudentTab>
+          <div className="container">
+            <div>
+              <StudentTab></StudentTab>
             </div>
-
+          </div>
         </section>
       </div>
     );
