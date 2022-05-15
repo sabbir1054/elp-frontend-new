@@ -13,15 +13,17 @@ const NavbarHome = () => {
     <>
       <Navbar className={style.navBar_bg}>
         <Container>
-          <Navbar.Brand href="#home">
-            {" "}
-            <h3 className="text-white">Education Learning Platform</h3>{" "}
-          </Navbar.Brand>
+          
+            <Navbar.Brand>
+              {" "}<Link to="/" className='text-decoration-none'>
+              <h3 className="text-white">Education Learning Platform</h3>{" "}</Link>
+            </Navbar.Brand>
+         
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end ">
             {user ? (
               <Navbar.Text>
-               <Out></Out>
+                <Out></Out>
               </Navbar.Text>
             ) : (
               <Navbar.Text>

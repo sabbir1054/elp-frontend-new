@@ -1,0 +1,32 @@
+{
+  "username": "Sabbir Hossain",
+  "role": "student",
+  "class": "2",
+  "email": "mdsabbir1054@gmail.com",
+  "result": [
+    {
+      "examName": "Semester 01",
+      "bangla": "45",
+      "english": "45",
+      "islam": "45",
+      "science": "45",
+      "ict": "45"
+    },
+    {
+      "examName": "Semester 02",
+      "bangla": "45",
+      "english": "45",
+      "islam": "45",
+      "science": "45",
+      "ict": "45"
+    },
+    {
+      "examName": "Semester 03",
+      "bangla": "45",
+      "english": "45",
+      "islam": "45",
+      "science": "45",
+      "ict": "45"
+    }
+  ]
+}

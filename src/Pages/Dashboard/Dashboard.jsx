@@ -6,8 +6,8 @@ import style from './Dashboard.module.css'
 const Dashboard = () => {
   return (
     <div className={style.dashboard_wrapper}>
-      <StudentDashboard></StudentDashboard>
-      {/* <TeacherDashboard></TeacherDashboard> */}
+      {/* <StudentDashboard></StudentDashboard> */}
+      <TeacherDashboard></TeacherDashboard>
     </div>
   );
 };

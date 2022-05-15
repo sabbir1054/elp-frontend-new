@@ -9,24 +9,50 @@ import styleB from '../../Pages/Dashboard/StudentDashboard/StudentDashboard.modu
 import Out from "../Out";
 
 const StudentNav = () => {
+
+  
+
+
   const [user, loading, error] = useAuthState(auth);
   return (
     <>
       <Navbar className={style.navBar_bg}>
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand>
             {" "}
-            <h3 className="text-white">Education Learning Platform</h3>{" "}
+            <Link to="/" className="text-decoration-none">
+              <h3 className="text-white">Education Learning Platform</h3>{" "}
+            </Link>
           </Navbar.Brand>
+
           <Navbar.Toggle />
-        
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="m-auto ">
-              <NavLink to='/dashboard'className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}` } >Dashboard</NavLink>
-              <NavLink to='/profile'className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}` } >Profile</NavLink>
-              <NavLink to='/course'className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}` } >Course</NavLink>
-              <NavLink to='/course'className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}` } >Result</NavLink>
+              <NavLink
+                to="/dashboard"
+                className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}`}
+              >
+                Dashboard
+              </NavLink>
+              <NavLink
+                to="/profile"
+                className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}`}
+              >
+                Profile
+              </NavLink>
+              <NavLink
+                to="/course"
+                className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}`}
+              >
+                Course
+              </NavLink>
+              <NavLink
+                to="/course"
+                className={`text-white text-decoration-none mx-2 fw-bold ${styleB.navLink}`}
+              >
+                Result
+              </NavLink>
             </Nav>
             <Navbar.Text className="btn btn-danger px-3">
               <Out></Out>

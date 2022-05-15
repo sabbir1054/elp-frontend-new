@@ -21,10 +21,12 @@ const TeacherNav = () => {
           <Navbar.Collapse className="justify-content-end ">
             {user ? (
               <Navbar.Text>
-                <Out></Out>
+                <div className="btn btn-danger">
+                  <Out></Out>
+                </div>
               </Navbar.Text>
             ) : (
-             ""
+              ""
             )}
           </Navbar.Collapse>
         </Container>
