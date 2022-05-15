@@ -1,0 +1,6 @@
+.navlink{
+    transition: all 0.2s ease-in;
+}
+.navLink:hover{
+border-bottom: 2px solid white;
+}

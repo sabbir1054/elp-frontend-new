@@ -22,6 +22,14 @@ function App() {
             <Dashboard></Dashboard>
           </PrivateRoute>
           }></Route>
+       {/*  <Route path='/profile' element={
+          <PrivateRoute>
+            
+          </PrivateRoute>
+        }></Route> */}
+
+
+
         </Routes>
    
     </>

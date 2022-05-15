@@ -5,6 +5,9 @@ import { useForm } from "react-hook-form";
 import auth from "../../Firebase/Firebase.init";
 import { sendEmailVerification } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+
+
+
 const StudentRegister = () => {
 const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
