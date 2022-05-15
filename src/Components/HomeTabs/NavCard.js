@@ -1,10 +1,11 @@
 import React from "react";
 import { Card, Col } from "react-bootstrap";
+import './HomeTabs.css'
 const NavCard = ({ data }) => {
   console.log(data);
   return (
     <Col>
-      <Card bg="dark">
+      <Card className='cardBackground'>
         <Card.Body>
           <Card.Title>Class</Card.Title>
           <Card.Text>

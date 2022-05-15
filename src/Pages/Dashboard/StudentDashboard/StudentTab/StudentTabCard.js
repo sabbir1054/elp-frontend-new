@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card, Col } from 'react-bootstrap';
-
+import './stab.css'
 const StudentTabCard = () => {
     return (
       <Col>
-        <Card bg="light">
+        <Card className='stu-cardBackground'>
           <Card.Body className='d-flex justify-content-center'>
             
             {/*  <Card.Text>

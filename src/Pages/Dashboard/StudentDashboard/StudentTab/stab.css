@@ -5,3 +5,7 @@
 .nav-tabs .nav-link.active{
     color: black !important;
 }
+
+.stu-cardBackground{
+    background-color: rgba(0, 0, 0, 0.199);
+}

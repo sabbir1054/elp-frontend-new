@@ -3,3 +3,7 @@
    font-weight: bold;
     color: white !important;
 }
+
+.cardBackground{
+    background-color: rgba(138, 138, 138, 0.404);
+}
