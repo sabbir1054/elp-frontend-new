@@ -1,32 +1,15 @@
-{
-  "username": "Sabbir Hossain",
-  "role": "student",
-  "class": "2",
-  "email": "mdsabbir1054@gmail.com",
-  "result": [
-    {
-      "examName": "Semester 01",
-      "bangla": "45",
-      "english": "45",
-      "islam": "45",
-      "science": "45",
-      "ict": "45"
-    },
-    {
-      "examName": "Semester 02",
-      "bangla": "45",
-      "english": "45",
-      "islam": "45",
-      "science": "45",
-      "ict": "45"
-    },
-    {
-      "examName": "Semester 03",
-      "bangla": "45",
-      "english": "45",
-      "islam": "45",
-      "science": "45",
-      "ict": "45"
-    }
-  ]
-}
+[
+  {
+    "username": "Sabbir khan",
+    "role": "student",
+    "class": "2",
+    "email": "mdsabbir1054@gmail.com"
+  },
+  {
+    "username": "Sabbir Hossain",
+    "role": "teacher",
+    "level": "primary",
+    "email": "studentsabbir9944@gmail.com",
+    "subject": "Math"
+  }
+]

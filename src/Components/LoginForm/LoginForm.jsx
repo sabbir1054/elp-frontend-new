@@ -50,7 +50,7 @@ navigate(from, { replace: true });
         <br />
         {/* errors will return when field validation fails  */}
         {errors.password && <span>This field is required</span>}
-        <input type="submit" className="btn btn-warning mt-2" />
+        <input type="submit" value="Submit" className="btn btn-warning mt-2" />
       </form>
       <p className="text-white mt-3"> - or -</p>
 
