@@ -18,7 +18,8 @@ const Dashboard = () => {
   }, []);
 
   const filterUser = (data) => {
-    setUserName(data.username);
+     setUserName(data.username)  
+    
     if (data.role === 'teacher') {
       setIsStudent(false);
     } else if(data.role==='student'){

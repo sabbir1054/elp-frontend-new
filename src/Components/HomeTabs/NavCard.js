@@ -3,7 +3,7 @@ import { Card, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import './HomeTabs.css'
 const NavCard = ({ data }) => {
-  console.log(data);
+
   return (
     <Col>
       <Link

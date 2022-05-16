@@ -1,20 +1,21 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import TeacherNav from '../../../Components/DashboardNav/TeacherNav';
 import Header from '../../../Components/Header/Header';
 import auth from '../../../Firebase/Firebase.init';
 import TeacherTab from './TeacherTab/TeacherTab';
 
 const TeacherDashboard = ({name}) => {
-      const [user, loading, error] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
+   const [sendEmailVerification, sending] = useSendEmailVerification(auth);
     return (
       <div>
         <TeacherNav></TeacherNav>
         <section>
           <h4 className="text-center text-white py-4">
-            Hi <span className="text-warning"> {name}</span>,
-            Welcome to ELP Teacher dashboard
+            Hi <span className="text-warning"> {name}</span>, Welcome to ELP
+            Teacher dashboard
           </h4>
           <div className="d-flex justify-content-center">
             {user ? (
@@ -23,7 +24,10 @@ const TeacherDashboard = ({name}) => {
               ) : (
                 <Alert variant="danger" className="w-50 text-center">
                   {" "}
-                  "Please Verify Your account . Check your email address"
+                  "Please Verify Your account .{" "}
+                  <span onClick={sendEmailVerification} className='text-decoration-underline'>
+                    If you not get email click here
+                  </span>
                 </Alert>
               )
             ) : (

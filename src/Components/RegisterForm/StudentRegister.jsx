@@ -19,16 +19,36 @@ const [createUserWithEmailAndPassword, user, loading, error] =
     watch,
     formState: { errors },
   } = useForm();
+
+
+  //post user data function
+
+  const postData = (data) => {
+    const url = "http://localhost:5000/users";
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        'content-type':'application/json'
+      },
+      body:JSON.stringify(data)
+    })
+      .then(res => res.json())
+      .then(result => {
+      console.log(result);
+    })
+  }
+
     const onSubmit = (data) => {
         if (data.password !== data.confirmPass) {
             setMatch(false);
         } else {
           createUserWithEmailAndPassword(data.email, data.password).then(() => {  
+            postData(data);
             navigate('/');
           }
         );
 
-            console.log(data);
         }
     };
 
@@ -50,11 +70,13 @@ const [createUserWithEmailAndPassword, user, loading, error] =
         <br />
         <input
           placeholder="Name"
-          {...register("name", { required: true })}
+          {...register("username", { required: true })}
           className=" w-25 p-2 rounded "
         />
         <br />
-        {errors.name && <span className='text-danger'>This field is required</span>}
+        {errors.name && (
+          <span className="text-danger">This field is required</span>
+        )}
         <br />
         {/* Email Of Registered Person */}
         <label htmlFor="email" className="text-white">
@@ -66,7 +88,10 @@ const [createUserWithEmailAndPassword, user, loading, error] =
           {...register("email", { required: true })}
           className=" w-25 p-2 rounded "
         />{" "}
-        <br /> {errors.email && <span className='text-danger'>This field is required</span>}
+        <br />{" "}
+        {errors.email && (
+          <span className="text-danger">This field is required</span>
+        )}
         <br />
         {/* LEVEL OF EDUCATION */}
         <label htmlFor="name" className="text-white">
@@ -93,36 +118,43 @@ const [createUserWithEmailAndPassword, user, loading, error] =
           <option value="HSC">HSC Batch</option>
         </select>{" "}
         <br />
-        {errors.level && <span className='text-danger'>This field is required</span>} <br />
+        {errors.level && (
+          <span className="text-danger">This field is required</span>
+        )}{" "}
+        <br />
         <label htmlFor="name" className="text-white">
           Password:
         </label>
         <br />
         <input
-          type='password'
+          type="password"
           placeholder="Password"
           {...register("password", { required: true })}
           className=" w-25 p-2 rounded "
         />{" "}
         <br />
-        {errors.password && <span className='text-danger'>This field is required</span>} <br />
+        {errors.password && (
+          <span className="text-danger">This field is required</span>
+        )}{" "}
+        <br />
         <label htmlFor="confirmPass" className="text-white">
           Confirm Password:
         </label>
         <br />
         <input
-          type='password'
+          type="password"
           placeholder="Confirm Password"
           {...register("confirmPass", { required: true })}
           className=" w-25 p-2 rounded "
         />{" "}
         <br />
-              {errors.confirmPass && <span className='text-danger'>This field is required</span>}
-              {match?'':<span className="text-danger">Password not matched</span>}
-              
-        <br /><br />
-              <input
-                
+        {errors.confirmPass && (
+          <span className="text-danger">This field is required</span>
+        )}
+        {match ? "" : <span className="text-danger">Password not matched</span>}
+        <br />
+        <br />
+        <input
           type="submit"
           value="Register"
           className="btn btn-warning text-dark"

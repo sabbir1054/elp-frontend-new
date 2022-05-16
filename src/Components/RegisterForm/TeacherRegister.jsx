@@ -4,7 +4,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
 } from "react-firebase-hooks/auth";
-import {sendEmailVerification } from "firebase/auth";
+
 
 import { useForm } from "react-hook-form";
 import auth from "../../Firebase/Firebase.init";
@@ -12,7 +12,9 @@ import { useNavigate } from "react-router-dom";
 
 const TeacherRegister = () => {
   const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth,{sendEmailVerification:true});
+    useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  
+  
   const [match, setMatch] = useState(true);
   const navigate = useNavigate();
   const {
@@ -21,15 +23,33 @@ const TeacherRegister = () => {
     watch,
     formState: { errors },
   } = useForm();
+
+  //post user data function
+
+  const postData = (data) => {
+    const url = "http://localhost:5000/users";
+
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        console.log(result);
+      });
+  };
+
   const onSubmit = (data) => {
     if (data.password !== data.confirmPass) {
       setMatch(false);
     } else {
-      createUserWithEmailAndPassword(data.email, data.password).then(
-        navigate('/')
-      );
-
-     console.log(data);
+      createUserWithEmailAndPassword(data.email, data.password).then(() => {
+        postData(data);
+        navigate("/");
+      });
     }
   };
   return (
@@ -50,7 +70,7 @@ const TeacherRegister = () => {
         <br />
         <input
           placeholder="Name"
-          {...register("name", { required: true })}
+          {...register("username", { required: true })}
           className=" w-25 p-2 rounded "
         />
         <br />{" "}
@@ -112,7 +132,7 @@ const TeacherRegister = () => {
         </label>
         <br />
         <input
-          type='password'
+          type="password"
           placeholder="Password"
           {...register("password", { required: true })}
           className=" w-25 p-2 rounded "
@@ -127,7 +147,7 @@ const TeacherRegister = () => {
         </label>
         <br />
         <input
-          type='password'
+          type="password"
           placeholder="Confirm Password"
           {...register("confirmPass", { required: true })}
           className=" w-25 p-2 rounded "
