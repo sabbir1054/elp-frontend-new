@@ -8,19 +8,20 @@ import TeacherDashboard from "./TeacherDashboard/TeacherDashboard";
 const Dashboard = () => {
   const [user, loading] = useAuthState(auth);
   const [isStudent, setIsStudent] = useState(false);
-
-  console.log(user.email);
+  const [userName, setUserName] = useState('');
+ 
 
   useEffect(() => {
     fetch(`http://localhost:5000/users/${user.email}`)
       .then((res) => res.json())
-      .then((data) => filterUser(data.role));
+      .then((data) => filterUser(data));
   }, []);
 
-  const filterUser=(role) => {
-    if (role === 'teacher') {
+  const filterUser = (data) => {
+    setUserName(data.username);
+    if (data.role === 'teacher') {
       setIsStudent(false);
-    } else {
+    } else if(data.role==='student'){
       setIsStudent(true);
     }
   }
@@ -28,9 +29,9 @@ const Dashboard = () => {
   return (
     <div className={style.dashboard_wrapper}>
       {isStudent ? (
-        <StudentDashboard></StudentDashboard>
+        <StudentDashboard name={userName}></StudentDashboard>
       ) : (
-        <TeacherDashboard></TeacherDashboard>
+        <TeacherDashboard name={userName}></TeacherDashboard>
       )}
 
       {/* */}

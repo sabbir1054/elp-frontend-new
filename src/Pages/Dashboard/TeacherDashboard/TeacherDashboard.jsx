@@ -6,14 +6,14 @@ import Header from '../../../Components/Header/Header';
 import auth from '../../../Firebase/Firebase.init';
 import TeacherTab from './TeacherTab/TeacherTab';
 
-const TeacherDashboard = () => {
+const TeacherDashboard = ({name}) => {
       const [user, loading, error] = useAuthState(auth);
     return (
       <div>
         <TeacherNav></TeacherNav>
         <section>
           <h4 className="text-center text-white py-4">
-            Hi <span className="text-warning"> {user ? user.email : ""}</span>,
+            Hi <span className="text-warning"> {name}</span>,
             Welcome to ELP Teacher dashboard
           </h4>
           <div className="d-flex justify-content-center">

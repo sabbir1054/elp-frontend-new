@@ -5,15 +5,15 @@ import StudentNav from '../../../Components/DashboardNav/StudentNav';
 import auth from '../../../Firebase/Firebase.init';
 import StudentTab from './StudentTab/StudentTab';
 
-const StudentDashboard = () => {
+const StudentDashboard = ({name}) => {
   const [user, loading, error] = useAuthState(auth);
-  console.log(user);
+
     return (
       <div>
         <StudentNav></StudentNav>
         <section>
           <h4 className="text-center text-white py-4">
-            Hi <span className="text-warning"> {user ? user.email : ""}</span>,
+            Hi <span className="text-warning"> {name}</span>,
             Welcome to ELP student dashboard
           </h4>
           <div className="d-flex justify-content-center">
